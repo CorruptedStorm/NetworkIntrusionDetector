@@ -50,6 +50,7 @@ pytest
 - Precision: ~93%
 - Recall: ~62%
 
+<<<<<<< HEAD
 Precision is strong (few false alarms), but recall is the weak point — the model misses a meaningful share of real attacks. That's the main direction for improvement.
 
 ## Next steps
@@ -57,6 +58,9 @@ Precision is strong (few false alarms), but recall is the weak point — the mod
 - Classify specific attack types instead of binary normal/attack
 - Tune the classification threshold to favor recall, since missed attacks are costlier than false alarms
 - Feed in live-captured traffic (Wireshark/tshark) instead of a static dataset
+=======
+Precision is strong (few false alarms), but recall is the weak point where real attacks are missed. That's the main direction for improvement.
+>>>>>>> fe08b7c9ed1fed14803e76874ba0d462c5c3991a
 
 ## Tech
 Python, pandas, scikit-learn, Jupyter, pytest
