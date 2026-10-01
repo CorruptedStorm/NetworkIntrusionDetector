@@ -1,0 +1,19 @@
+# Data (downloaded automatically, shouldn't be tracked in GitHub)
+data/
+
+# Python
+__pycache__/
+*.pyc
+.pytest_cache/
+*.egg-info/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Environments
+.venv/
+venv/
+env/
+
+# OS
+.DS_Store
