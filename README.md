@@ -18,18 +18,15 @@ network-intrusion-detector/
 │   ├── data_loader.py       # downloading and loading the dataset
 │   ├── preprocessing.py     # encoding and scaling features
 │   ├── model.py              # training and prediction
+│   ├── neural_net.py         # training and prediction for nueral networks
 │   └── evaluate.py           # metrics and reporting
-├── tests/
-│   ├── test_preprocessing.py
-│   ├── test_model.py
-│   └── test_evaluate.py
 └── notebooks/
     └── network_intrusion_detector.ipynb   # walkthrough version, imports from src/
 ```
 
 ## How to run
 
-**Full pipeline:**
+**Run through python (this does not include neural network models):**
 ```
 pip install -r requirements.txt
 python main.py
@@ -39,28 +36,6 @@ python main.py
 ```
 jupyter notebook notebooks/network_intrusion_detector.ipynb
 ```
-
-**Tests:**
-```
-pytest
-```
-
-## Results
-- Accuracy: ~75%
-- Precision: ~93%
-- Recall: ~62%
-
-<<<<<<< HEAD
-Precision is strong (few false alarms), but recall is the weak point — the model misses a meaningful share of real attacks. That's the main direction for improvement.
-
-## Next steps
-- Compare against Random Forest / Gradient Boosting
-- Classify specific attack types instead of binary normal/attack
-- Tune the classification threshold to favor recall, since missed attacks are costlier than false alarms
-- Feed in live-captured traffic (Wireshark/tshark) instead of a static dataset
-=======
-Precision is strong (few false alarms), but recall is the weak point where real attacks are missed. That's the main direction for improvement.
->>>>>>> fe08b7c9ed1fed14803e76874ba0d462c5c3991a
 
 ## Tech
 Python, pandas, scikit-learn, Jupyter, pytest
