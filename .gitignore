@@ -1,6 +1,3 @@
-# Data (downloaded automatically, shouldn't be tracked in GitHub)
-data/
-
 # Python
 __pycache__/
 *.pyc

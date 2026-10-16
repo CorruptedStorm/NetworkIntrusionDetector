@@ -15,7 +15,7 @@ network-intrusion-detector/
 ├── main.py                 # runs the full pipeline end to end
 ├── data/                   # downloaded dataset (gitignored)
 ├── src/
-│   ├── data_loader.py       # downloading and loading the dataset
+│   ├── data_loader.py       # loading the dataset
 │   ├── preprocessing.py     # encoding and scaling features
 │   ├── model.py              # training and prediction
 │   ├── neural_net.py         # training and prediction for nueral networks

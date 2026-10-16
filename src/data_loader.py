@@ -1,17 +1,13 @@
 """
 data_loader.py
 
-Handles downloading and loading the NSL-KDD dataset.
+Handles loading the NSL-KDD dataset into pandas DataFrames.
 """
 
 import os
-import urllib.request
 import pandas as pd
 
-TRAIN_URL = "https://raw.githubusercontent.com/jmnwong/NSL-KDD-Dataset/master/KDDTrain%2B.txt"
-TEST_URL = "https://raw.githubusercontent.com/jmnwong/NSL-KDD-Dataset/master/KDDTest%2B.txt"
-
-COLUMNS = [
+KDD_COLUMNS = [
     "duration", "protocol_type", "service", "flag", "src_bytes", "dst_bytes", "land",
     "wrong_fragment", "urgent", "hot", "num_failed_logins", "logged_in", "num_compromised",
     "root_shell", "su_attempted", "num_root", "num_file_creations", "num_shells",
@@ -25,29 +21,13 @@ COLUMNS = [
 ]
 
 
-def download_data(data_dir: str = "data") -> None:
-    """
-    Download the NSL-KDD train/test files into data_dir if not already present.
-    """
-    os.makedirs(data_dir, exist_ok=True)
-    train_path = os.path.join(data_dir, "KDDTrain.txt")
-    test_path = os.path.join(data_dir, "KDDTest.txt")
-
-    if not os.path.exists(train_path):
-        urllib.request.urlretrieve(TRAIN_URL, train_path)
-    if not os.path.exists(test_path):
-        urllib.request.urlretrieve(TEST_URL, test_path)
-
-
 def load_data(data_dir: str = "data") -> tuple[pd.DataFrame, pd.DataFrame]:
-    """
-    Load the train/test NSL-KDD data into DataFrames with column names and a binary label.
-    """
-    train_path = os.path.join(data_dir, "KDDTrain.txt")
-    test_path = os.path.join(data_dir, "KDDTest.txt")
+    """Load the train/test NSL-KDD data into DataFrames with column names and a binary label."""
+    train_path = os.path.join(data_dir, "KDDTrain+.txt")
+    test_path = os.path.join(data_dir, "KDDTest+.txt")
 
-    train = pd.read_csv(train_path, names=COLUMNS)
-    test = pd.read_csv(test_path, names=COLUMNS)
+    train = pd.read_csv(train_path, names=KDD_COLUMNS)
+    test = pd.read_csv(test_path, names=KDD_COLUMNS)
 
     train["is_attack"] = (train["label"] != "normal").astype(int)
     test["is_attack"] = (test["label"] != "normal").astype(int)
