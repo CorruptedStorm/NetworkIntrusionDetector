@@ -14,3 +14,7 @@ env/
 
 # OS
 .DS_Store
+
+# Data
+data/data_kdd/
+data/data_cic/

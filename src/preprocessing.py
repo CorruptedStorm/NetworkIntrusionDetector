@@ -27,7 +27,7 @@ def encode_categorical(train: pd.DataFrame, test: pd.DataFrame) -> tuple[pd.Data
     return train, test
 
 
-def prepare_features(train: pd.DataFrame, test: pd.DataFrame):
+def prepare_kdd_features(train: pd.DataFrame, test: pd.DataFrame):
     """Split into X/y, encode categoricals, and scale numeric features.
 
     Returns: X_train_scaled, X_test_scaled, y_train, y_test, fitted_scaler
@@ -47,3 +47,10 @@ def prepare_features(train: pd.DataFrame, test: pd.DataFrame):
     X_test_scaled = scaler.transform(X_test)
 
     return X_train_scaled, X_test_scaled, y_train, y_test, scaler
+
+def prepare_cic_features(train, test, drop_cols=("Label", "Day", "is_attack")):
+    feature_columns = [c for c in train.columns if c not in drop_cols]
+    scaler = StandardScaler()
+    X_train = scaler.fit_transform(train[feature_columns])
+    X_test = scaler.transform(test[feature_columns])
+    return X_train, X_test, train["is_attack"], test["is_attack"], scaler

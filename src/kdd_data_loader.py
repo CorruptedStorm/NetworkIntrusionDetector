@@ -21,7 +21,7 @@ KDD_COLUMNS = [
 ]
 
 
-def load_data(data_dir: str = "data") -> tuple[pd.DataFrame, pd.DataFrame]:
+def kdd_load_data(data_dir: str = "data/data_kdd") -> tuple[pd.DataFrame, pd.DataFrame]:
     """Load the train/test NSL-KDD data into DataFrames with column names and a binary label."""
     train_path = os.path.join(data_dir, "KDDTrain+.txt")
     test_path = os.path.join(data_dir, "KDDTest+.txt")
