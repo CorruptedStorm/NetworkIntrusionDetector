@@ -9,10 +9,10 @@ in model.py, so it drops into the existing structure.
 from sklearn.neural_network import MLPClassifier
 
 
-def train_mlp(X_train, y_train, hidden_layer_size=32, random_state=42):
+def train_mlp(X_train, y_train, hidden_layer_size=(32,), random_state=42):
     """Train a neural net with ONE hidden layer of hidden_layer_size neurons."""
     model = MLPClassifier(
-        hidden_layer_sizes=(hidden_layer_size,),  # one hidden layer
+        hidden_layer_sizes=hidden_layer_size,
         activation="relu",
         solver="adam",
         max_iter=1000,

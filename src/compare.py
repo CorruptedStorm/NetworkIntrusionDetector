@@ -13,7 +13,7 @@ import seaborn as sns
 
 def compare_models(models: dict, X_test, y_test, metrics=("accuracy", "precision", "recall")) -> pd.DataFrame:
     """
-    models: dict mapping a display name -> a trained model with a .predict() method
+    models: dictionary mapping a display name -> a trained model with a .predict() method
     Returns a DataFrame: rows = metrics, columns = model names.
     """
     results = {}
