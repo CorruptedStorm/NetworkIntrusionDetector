@@ -12,13 +12,17 @@ network-intrusion-detector/
 ├── requirements.txt
 ├── .gitignore
 ├── pytest.ini
-├── main.py                 # runs the full pipeline end to end
-├── data/                   # downloaded dataset (gitignored)
+├── main.py                   # runs the full pipeline end to end
+├── data/                   
+│   ├── data_cic/             # the cic dataset
+│   └── data_kdd/             # the kdd dataset
 ├── src/
-│   ├── data_loader.py       # loading the dataset
-│   ├── preprocessing.py     # encoding and scaling features
+│   ├── kdd_data_loader.py    # loading the kdd dataset
+|   ├── cic_data_loader.py    # loading the cic dataset
+│   ├── preprocessing.py      # encoding and scaling features
 │   ├── model.py              # training and prediction
 │   ├── neural_net.py         # training and prediction for nueral networks
+│   ├── cross_validation.py   # splits datasets for training and testing
 │   └── evaluate.py           # metrics and reporting
 └── notebooks/
     └── network_intrusion_detector.ipynb   # walkthrough version, imports from src/
@@ -33,8 +37,15 @@ python main.py
 ```
 
 **Notebook walkthrough:**
+To view the NSL-KDD dataset models
 ```
-jupyter notebook notebooks/network_intrusion_detector.ipynb
+jupyter notebook notebooks/kdd_network_intrusion_detector.ipynb
+```
+OR
+
+To view the CIC-IDS2017 dataset models along with WireShark application
+```
+jupyter notebook notebooks/cic_network_intrusion_detector.ipynb
 ```
 
 ## Tech
