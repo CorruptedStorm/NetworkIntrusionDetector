@@ -55,3 +55,27 @@ def plot_comparison(results_df, confusion_matrices, bar_chart_path="comparison_b
 
     plt.tight_layout()
     plt.savefig(confusion_path)
+
+
+
+def plot_confusion_matrices(confusion_matrices, path="confusion_matrices.png"):
+    num_models = len(confusion_matrices)
+    fig, axes = plt.subplots(1, num_models, figsize=(6 * num_models, 5))
+    if num_models == 1:
+        axes = [axes]
+    for ax, (name, cm) in zip(axes, confusion_matrices.items()):
+        sns.heatmap(cm, annot=True, fmt="d", cmap="Blues",
+                    xticklabels=["normal", "attack"], yticklabels=["normal", "attack"], ax=ax)
+        ax.set_title(name); ax.set_xlabel("Predicted"); ax.set_ylabel("Actual")
+    plt.tight_layout()
+    plt.savefig(path)
+
+
+def plot_cv_results(means_df, stds_df, path="cv_comparison.png"):
+    means_df.plot(kind="bar", yerr=stds_df, capsize=4, figsize=(8, 5))
+    plt.title("Cross-Validation Results (mean ± std across folds)")
+    plt.ylabel("Score")
+    plt.ylim(0, 1.05)
+    plt.xticks(rotation=0)
+    plt.tight_layout()
+    plt.savefig(path)

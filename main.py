@@ -15,8 +15,8 @@ from src.evaluate import print_report
 
 def main():
 
-    print("Loading data...")
-    train, test = kdd_load_data(data_dir="data/kdd_data")
+    print("Loading KDD data...")
+    train, test = kdd_load_data(data_dir="data/data_kdd")
     print(f"  Training rows: {len(train)}")
     print(f"  Test rows:     {len(test)}")
 
