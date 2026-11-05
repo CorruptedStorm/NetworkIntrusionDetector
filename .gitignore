@@ -15,8 +15,9 @@ env/
 # OS
 .DS_Store
 
+
 # Data
-CIC/data/
-KDD/data/
-!CIC/data/**/.gitkeep
-!KDD/data/**/.gitkeep
+CIC/data/*
+KDD/data/*
+!CIC/data/.gitkeep
+!KDD/data/.gitkeep
