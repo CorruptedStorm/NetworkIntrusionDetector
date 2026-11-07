@@ -24,6 +24,3 @@ CIC/data/*
 KDD/data/*
 !CIC/data/.gitkeep
 !KDD/data/.gitkeep
-
-# Results
-results/*

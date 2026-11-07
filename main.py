@@ -6,13 +6,15 @@ Examples:
     python main.py --dataset kdd
     python main.py --dataset cic
     python main.py --dataset both
-    python main.py --dataset cic --models lr hgb mlp --cv kfold
+    python main.py --dataset cic --models lr hgb hgb-deep mlp --cv kfold
     python main.py --dataset cic --split day        # hold out Friday (unseen attack types)
     python main.py --dataset cic --sample 200000    # quick run on a random subset
 
 Charts and tables are saved to the results/ folder.
 
-Note: This file was created with Claude, but the majority of the underlying code was written by me while using Claude for minor editing.
+Note: 
+This main.py was created with Claude. 
+The majority of the underlying code was written by me while using Claude for minor editing.
 """
 
 import argparse
@@ -39,7 +41,7 @@ ROOT = Path(__file__).resolve().parent
 RESULTS = ROOT / "results"
 
 MODEL_CHOICES = ("lr", "hgb", "hgb-deep", "mlp")
-DEFAULT_MODELS = ("lr", "hgb")
+DEFAULT_MODELS = ("lr", "hgb", "mlp")
 
 
 
@@ -196,7 +198,7 @@ def parse_args():
     p.add_argument("--dataset", choices=["cic", "kdd", "both"],
                    help="which dataset to run (asked interactively if omitted)")
     p.add_argument("--models", nargs="+", choices=MODEL_CHOICES, default=list(DEFAULT_MODELS),
-                   help="models to train (default: lr hgb). mlp is slow on CIC.")
+                   help="models to train (default: lr hgb mlp). mlp is the slowest on CIC.")
     p.add_argument("--cv", choices=["none", "kfold", "day", "block"], default="none",
                    help="also run cross-validation on the training set (day/block: CIC only)")
     p.add_argument("--split", choices=["block", "day"], default="block",
