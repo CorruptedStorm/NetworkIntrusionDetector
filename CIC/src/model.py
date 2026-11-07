@@ -7,9 +7,9 @@ Trains and applies the logistic regression classifier.
 from sklearn.linear_model import LogisticRegression
 
 
-def train_model(X_train, y_train) -> LogisticRegression:
+def train_lr_model(X_train, y_train, c=1.0, max_iter=1000) -> LogisticRegression:
     """Train a logistic regression classifier on the scaled training features."""
-    model = LogisticRegression(max_iter=1000)
+    model = LogisticRegression(C=c, solver="lbfgs", max_iter=max_iter)
     model.fit(X_train, y_train)
     return model
 

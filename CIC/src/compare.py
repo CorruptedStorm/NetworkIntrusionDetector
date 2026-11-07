@@ -31,6 +31,7 @@ def compare_models(models: dict, X_test, y_test, metrics=("accuracy", "precision
 
 def plot_bar_chart(results_df, title="Model Comparison", path="comparison_bar_chart.png", errors=None):
     results_df.plot(kind="bar", yerr=errors, capsize=4, figsize=(8, 5))
+    plt.legend(loc="lower left")
     plt.title(title)
     plt.ylabel("Score")
     plt.ylim(0, 1.05)          # 1.05 so error-bar caps near 1.0 aren't clipped

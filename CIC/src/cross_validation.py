@@ -5,6 +5,21 @@ import pandas as pd
 
 
 def run_cv(models, X, y, cv, groups=None, scoring=("accuracy", "precision", "recall")):
+    """Run cross-validation on multiple models.
+
+    Parameters:
+    - models: dict mapping model names to estimator instances
+    - X: array-like of shape (n_samples, n_features)
+    - y: array-like of shape (n_samples,)
+    - cv: cross-validation splitter or number of splits
+    - groups: array-like of shape (n_samples,), optional
+    - scoring: tuple of scoring metrics, default=("accuracy", "precision", "recall")
+
+    Returns:
+    - means: DataFrame of mean scores for each model and metric
+    - stds: DataFrame of standard deviations for each model and metric
+    - confusion_matrices: dict of confusion matrices for each model
+    """
     means = {}   # [mean accuracy, mean precision, mean recall]
     stds = {}    # [std accuracy, std precision, std recall]
     confusion_matrices = {}  # stores confusion matrix for each model
