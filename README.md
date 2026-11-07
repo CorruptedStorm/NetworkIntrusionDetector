@@ -36,9 +36,13 @@ network-intrusion-detector/
         └── evaluate.py                                     # metrics and reporting
 ```
 
+## Dataset Links
+CIC: https://www.kaggle.com/datasets/chethuhn/network-intrusion-dataset
+KDD: https://www.kaggle.com/datasets/hassan06/nslkdd
+
 ## How to run
 
-**Run through python (this does not include neural network models):**
+**Run through python:**
 ```
 pip install -r requirements.txt
 python main.py
@@ -51,7 +55,7 @@ jupyter notebook notebooks/kdd_network_intrusion_detector.ipynb
 ```
 OR
 
-To view the CIC-IDS2017 dataset models along with WIP WireShark application
+To view the CIC-IDS2017 dataset models
 ```
 jupyter notebook notebooks/cic_network_intrusion_detector.ipynb
 ```

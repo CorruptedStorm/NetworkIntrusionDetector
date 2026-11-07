@@ -63,8 +63,7 @@ def split_within_days(df, test_frac=0.25, n_blocks=20, gap=50, min_block=200,
     happening. Doing it per (Day, Label) guarantees every attack family
     appears in BOTH train and test.
 
-    Row order is used as a stand-in for time (the CIC CSVs are roughly
-    chronological and your loader keeps that order).
+    Row order is used as a stand-in for time.
 
     Args:
         test_frac:    approximate fraction of each group's blocks for test.
